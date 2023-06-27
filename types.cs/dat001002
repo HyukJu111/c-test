@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Quiz002
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            char a = '반';
+            char b = '가';
+            char c = '워';
+            Console.Write(a);
+            Console.Write(b);
+            Console.Write(c);
+
+            
+
+
+
+            string s = "\n행복\n하세\n요!!";
+            Console.WriteLine(s);
+                
+
+        }
+    }
+}
