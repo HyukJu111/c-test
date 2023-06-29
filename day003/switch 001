@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Switch001
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write($"입력해다오:");
+            int num = int.Parse(Console.ReadLine());
+
+            switch(num)
+            {
+                case 0:
+                    Console.WriteLine($"\"일요일\"이 출력되었습니다.");
+                    break;
+                case 1:
+                     Console.WriteLine("\"월요일\"이 출력되었습니다.");
+                    break;
+                case 2:
+                    Console.WriteLine("\"화요일\"이 출력되었습니다.");
+                    break;
+                case 3:
+                    Console.WriteLine("\"수요일\"이 출력되었습니다.");
+                    break;
+                case 4:
+                    Console.WriteLine("\"목요일\"이 출력되었습니다.");
+                    break;
+                case 5:
+                    Console.WriteLine("\"금요일\"이 출력되었습니다.");
+                    break;
+                case 6:
+                    Console.WriteLine("\"토요일\"이 출력되었습니다.");
+                    break;
+
+                default:
+                    Console.WriteLine("기본값이 출력되었습니다.");
+                    break;
+                
+            } 
+
+        }
+    }
+}
