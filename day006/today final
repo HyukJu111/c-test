@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace propertyapp003
+{
+    class BirthdayInfo
+    {
+        private string name;
+        private DateTime birthday;
+
+        //property
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public DateTime Birthday
+        {
+            get
+            {
+                return birthday;
+            }
+            set
+            {
+                birthday = value;
+            }
+        }
+        public int Age
+        {
+            get
+            {
+                return CalculateAge();
+            }
+        }
+
+
+        private int CalculateAge()
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - birthday.Year;
+            if (today < birthday.AddYears(age))
+            {
+                age--;
+            }
+            return age;
+        }
+
+
+    
+    
+        public void SetBirthday(DateTime value)
+        {
+            birthday = value;
+        }
+        public
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                BirthdayInfo birth = new BirthdayInfo();
+                birth.Name = "서현";
+                birth.birthday = new DateTime(1991, 6, 28);
+
+                Console.WriteLine($"Name : {birth.Name}");
+                Console.WriteLine($"Birthday : {birth.Birthday.ToShortDateString()}");
+                Console.WriteLine($"Age : {birth.Age}");
+            }
+        }
+    }
+
+
+}
+
+    
+
+   
+
+ 
+    
+        
+    
+    
