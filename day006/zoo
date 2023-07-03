@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace zooapp001
+
+{
+    class Tiger
+    {
+        private string Name;
+        private int Age;
+
+        public Tiger(string _name)
+        {
+            Name = _name;
+        }
+        public void setAge(int _age)
+        {
+            this.Age = _age;
+        }//Getter, Setter
+        public int getAge()
+        {
+            return Age;
+        }
+        public string getName()
+        {
+            return Name;
+        }
+    }
+    
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Tiger timon = new Tiger("티몬");
+                timon.setAge(5);
+
+            Console.WriteLine($"고양이의 이름은{timon.getName()}");
+            Console.WriteLine($"티몬의 나이는 {timon.getAge()}");
+
+        }
+    }
+}
