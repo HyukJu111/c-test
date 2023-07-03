@@ -1,0 +1,111 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Text;
+
+using System.Threading.Tasks;
+
+
+
+namespace Quiz2023070301
+
+{
+
+    class Cat
+
+    {
+
+        private string Name;
+
+        private int Age;
+
+        private string Color;
+
+
+
+        public void setName(string name)
+
+        {
+
+            this.Name = name;
+
+        }
+
+        public string getName()
+
+        {
+
+            return this.Name;
+
+        }
+
+        public void setAge(int age)
+
+        {
+
+            this.Age = age;
+
+        }
+
+        public int getAge()
+
+        {
+
+            return this.Age;
+
+        }
+
+        public void setColor(string color)
+
+        {
+
+            this.Color = color;
+
+        }
+
+        public string getcolor()
+
+        {
+
+            return this.Color;
+
+        }
+
+    
+
+    }
+
+    
+
+
+
+    
+
+
+
+     class Program
+
+    {
+
+        static void Main(string[] args)
+
+        {
+
+            Cat cat = new Cat();
+
+            cat.setName("NERO");
+
+            cat.setAge((10));
+
+            cat.setColor("Black");
+
+            Console.WriteLine($"{cat.getName()} {cat.getAge()}{cat.getcolor()}");
+
+        }
+
+    }
+
+}
