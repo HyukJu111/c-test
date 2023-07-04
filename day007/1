@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace calculatorapp001
+{
+    //사칙연산을 하는 계산기를 만들어봅시다.
+    class calculator
+    {
+        //1.맴버변수
+        private string x;
+        
+       
+        public calculator()
+        {
+
+        }
+        public calculator(string _x)
+        {
+            x = _x; 
+        }
+
+        //2.생성자
+        //-디폴트 생성자는 안만들면 자동으로 생성된다 단, 인자가 있는 생성자가 1개라도 있으면 자동으로 만들어지지 않는다.
+       /*public calculator() 얘가 디폴트 생성자임
+        {
+
+        } */
+        //3.맴버 메소드
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            calculator cal = new calculator(); // 객체
+            calculator cal2 = new calculator("홍길동");
+        }
+    }
+}
