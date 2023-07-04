@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace oopapp011
+{
+    abstract class  Myteamgrandmother
+    {
+        public abstract string Life();
+    }
+    class Myteammother : Myteamgrandmother
+    {
+        public override string Life()
+        {
+            //throw new NotImplementedException();
+            return "Die";
+        }
+    }
+    class Myfxxkteam : Myteammother
+    {
+        
+    }
+    
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Myfxxkteam teemo = new Myfxxkteam();
+            Console.WriteLine(teemo.Life());  
+            
+        }
+    }
+}
