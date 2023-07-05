@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace interfaceApp
+{
+    interface ILogger 
+    { 
+       void writeLog(string message);
+    }
+    class ConsoleLogger { } //방법 1
+    class FileLogger:ILogger
+    {
+        private StreamWriter writer;
+        public FileLogger(string path)
+        {
+            writer = File.CreateText(path);
+            writer.AutoFlush = true;
+        }
+        public void writeLog(string message)
+        {
+            writer.WriteLine(DateTime.Now.ToShortTimeString() + " " + message);
+
+        }
+    }
+    // 방법 2
+    class CLimanteMoniter // 대상객체
+    {
+        private ILogger logger;
+        public CLimanteMoniter(ILogger logger)
+        {
+            this.logger = logger;
+        }
+        public void start()
+        {
+            while (true)
+            {
+                Console.Write("온도를 입력해주시오. : ");
+                string temperature = Console.ReadLine();
+
+                if (temperature == " ")
+                    break;
+
+                logger.writeLog("현재온도: " + temperature);
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //객체가 콘솔로그 도는 파일로그 중 1개를 선택해서 로그만들기
+            CLimanteMoniter moniter = new CLimanteMoniter(new FileLogger("MyLog.txt"));
+            moniter.start();
+        }
+    }
+}
