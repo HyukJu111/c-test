@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace quiz20230705
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int cnt;
+            for (int i = 2; i < 100; i++)
+            {
+                cnt = 0;
+                for (int j = 1; j < i; j++)
+                {
+                    if (i%j == 0)
+                    {
+                        cnt++;
+                    }
+                }
+                if (cnt == 1) Console.Write(i + " ");
+
+            }
+        }
+    }
+}
+    
+
