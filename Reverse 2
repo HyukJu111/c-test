@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace string_app_001
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string a = Console.ReadLine();
+            char[] array = a.ToCharArray();
+            Array.Reverse(array);
+            string reversed = new string(array);
+            Console.WriteLine(a);
+
+
+
+        }
+    }
+}
