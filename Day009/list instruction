@@ -1,0 +1,43 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace usinglist
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList List = new ArrayList();
+            int cnt = 10;
+            for (int i = 0; i < 5; i++)
+            {
+                //1. 요소추가
+                List.Add(cnt);
+                cnt += 10;
+            }
+            foreach (int n in List)
+                Console.Write(n + " ");
+            //2.요소삭제
+            List.RemoveAt(2);
+            Console.WriteLine();
+            foreach (int n in List)
+                Console.Write(n + " ");
+            //3.요소삽입
+            List.Insert(2,30);   
+            Console.WriteLine();
+            foreach (int n in List)
+                Console.Write(n + " ");
+
+           
+
+
+
+
+        }
+    }
+}
