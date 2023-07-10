@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace interFaceExam01
+{
+    interface IWeaponn 
+    {
+        string Attack();   
+    }
+    interface IBOW : IWeaponn
+    {
+
+    }
+    class Hero
+    {
+        public string Name { get; set; }    
+    }
+    class Knight : Hero, IBOW   
+    {
+        public Knight(string name)
+        {
+            Name = name;
+        }
+        public string Attack()
+        {
+            return "활을 쏩니다.";
+        }
+    }
+
+
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Knight knight = new Knight("아더");
+            Console.WriteLine($"{knight.Name}가 {knight.Attack()}"); 
+
+
+
+        }
+    }
+}
