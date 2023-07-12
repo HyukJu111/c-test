@@ -9,8 +9,8 @@ namespace oppapp004
     
     class cat
     {
-        //public string Name;
-        //public string Color;
+        public string Name;
+        public string Color;
         public cat()
        {
             Name = " ";
