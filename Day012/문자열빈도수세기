@@ -1,0 +1,42 @@
+using quiz20230712;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace quiz20230712
+{
+
+    internal class Program
+        {
+        public static int CharCounter(char[]arr, char ch)
+        {
+            //코딩
+            int N = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == ch) N++;
+            }
+
+
+            return N;
+        }
+         
+        static void Main(string[] args)
+        {
+            //1.문자열 입력
+            string str = Console.ReadLine();
+            char[] arr = str.ToCharArray();
+            //2.문자입력 
+            string str2 = Console.ReadLine();
+            char c = str2[0];
+
+
+            int result = CharCounter(arr, c);
+            Console.WriteLine("결과: " + result);
+        }
+    }
+}
