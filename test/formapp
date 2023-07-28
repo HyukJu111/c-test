@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Channels;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Formapp02
+{
+
+    class MainApp : Form
+    {
+        static void form_MouseDown(object sender, MouseEventArgs e)
+        {
+            Form form = (Form)sender;
+
+            Console.WriteLine("X:" + e.X);
+            Console.WriteLine("Y:" + e.Y);
+
+            if(e.Button == MouseButtons.Left)
+            {
+                Console.WriteLine("왼쪽마우스 버튼을 클릭하셨습니다.");
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                Console.WriteLine("오른쪽 마우스 버튼을 클릭하셨습니다.");
+            }
+            else if (e.Button == MouseButtons.Middle)
+            {
+                Console.WriteLine("가운데 마우스 버튼을 클릭하셨습니다.");
+            }
+        }
+        
+        static void Main(string[] args)
+        {
+            MainApp form =new MainApp();
+            form.Width = 600;
+            form.Height = 400;
+
+            form.MouseClick += form_MouseDown;
+
+            Application.Run(form);
+        }
+    }
+}
