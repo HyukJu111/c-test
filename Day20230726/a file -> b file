@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _20230726quiz001
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //String path = "C:\\temp\\A.txt";
+            //FileStream fs = new FileStream(path, FileMode.Create);
+            //StreamWriter  sw = new StreamWriter(fs,Encoding.UTF8);
+            //sw.WriteLine("Hello C#");
+            //sw.Flush();
+            //sw.Close();
+            //byte[]buffer = File.ReadAllBytes(path);
+
+            //String path2 = "C:\\temp\\B.txt";
+            //File.WriteAllBytes(path2, buffer);
+            //-----------------------------------------------
+            //string path = "C:\\temp\\A.txt";
+            //using(FileStream fs = new FileStream(path,FileMode.Create))
+            //{
+            //    File.Copy(path, "C:\\temp\\B.txt");
+            //}
+            //----------------------------------------------------
+            String path = "C:\\Users\\Admin\\Desktop\\A.txt";
+            String path2 = "C:\\Users\\Admin\\Desktop\\B.txt";
+            using(Stream s = new FileStream(path,FileMode.Create))
+            {
+                using(StreamWriter sw = new StreamWriter(s))
+                {
+                    sw.WriteLine("ddd");
+                }
+                File.Copy(path, path2);
+            }
+        }
+    }
+}
