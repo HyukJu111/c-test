@@ -1,0 +1,265 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QUIZ037
+{
+    //데이터가 임시로 저장될 Person 클래스 입니다.
+    class Person
+    {
+        public int ADDR_ID { get; set; }
+
+        public string Name { get; set; }
+
+        public string HP { get; set; }
+    }
+    internal class Program
+    {
+     //빈공간인가 예외처리
+        static bool IsNull(string a, string b, string c)
+        {
+            if (a == "" || b == "" || c == "")
+                return true;
+            return false;
+        }
+        //숫자가 맞는지 예외처리
+
+        static bool IsNum(string a, string b)
+        {
+
+            if ('0' <= (int)a[0] && (int)a[0] <= '9' &&
+
+                '0' <= (int)b[0] && (int)b[0] <= '9')
+
+                return true;
+
+            return false;
+
+        }
+
+        //리스트에 값을 삽입하는 메소드
+        static void insertP(ref List<Person> list)
+        {
+            //리스트 목록에 들어갈 내용 작성
+            Console.Write("ID를 입력해 주세요 : ");
+            string IDString = Console.ReadLine();
+
+            Console.Write("이름을 입력해 주세요 : ");
+            string NameString = Console.ReadLine();
+
+            Console.Write("전화번호를 입력해 주세요 : ");
+            string HPString = Console.ReadLine();
+
+            //예외처리와 리스트 목록에 삽입
+            Console.WriteLine();
+
+            if (IsNull(IDString, NameString, HPString))
+               Console.WriteLine("모든 항목은 필수 입력창입니다.");
+
+            else if (IsNum(IDString, HPString))
+            {
+                Console.WriteLine("데이터가 정상적으로 입력되었습니다.");
+
+                Person test = new Person();
+
+                test.ADDR_ID = int.Parse(IDString);
+
+                test.Name = NameString;
+
+                test.HP = HPString;
+
+                list.Add(test);
+            }
+            else
+                Console.WriteLine("잘못된 입력입니다.");
+        }
+
+        //리스트의 값을 삭제하는 메소드
+        static void DeleteP(ref List<Person> list)
+        {
+            //삭제할 ID를 입력
+
+            Console.Write("삭제할 리스트의 ADDR_ID를 입력하시오 : ");
+
+            int target = int.Parse(Console.ReadLine());
+
+            int targetIndex = 0;
+
+            //리스트에 해당 ID가 있는지, 있으면 어디에 있는지 확인
+
+            //for문이기에 중복된다면 맨 마지막을 찾을 것이다.
+            foreach (Person p in list)
+            {
+                if (p.ADDR_ID == target)
+                {
+                    targetIndex = list.IndexOf(p) + 1;
+                }
+            }
+
+            //예외처리와 해당 리스트 삭제
+            if (targetIndex != 0)
+            {
+                Console.WriteLine("삭제되었습니다.");
+                list.RemoveAt(targetIndex - 1);
+            }
+            else
+            {
+                Console.WriteLine("없는 번호입니다.");
+            }
+
+        }
+
+        //리스트를 출력하는 메소드
+
+        static void WriteList(List<Person> list)
+        {
+            //리스트의 Column을 출력
+
+            Console.WriteLine($"{"ADDR_ID",-10}{"Name",-10}{"HP"}");
+
+            //리스트의 내용 출력
+
+            foreach (Person p in list)
+            {
+               Console.Write($"{p.ADDR_ID,-10}");
+
+                Console.Write($"{p.Name,-10}");
+
+                Console.Write($"{p.HP}");
+
+                Console.WriteLine();
+            }
+        }
+
+        //리스트를 수정하는 메소드
+
+        static int UpdateP(ref List<Person> list)
+        {
+            //수정할 ID를 입력
+
+            Console.Write("수정할 리스트의 ADDR_ID를 입력하시오 : ");
+
+            int target = int.Parse(Console.ReadLine());
+
+            int targetIndex = 0;
+
+            //리스트에 해당 ID가 있는지, 있으면 어디에 있는지 확인
+
+            //for문이기에 중복된다면 맨 마지막을 찾을 것이다.
+
+            foreach (Person p in list)
+            {
+                if (p.ADDR_ID == target)
+                {
+                    targetIndex = list.IndexOf(p) + 1;
+                }
+
+            }
+
+            //해당 ID가 존재하지 않을 경우 메소드를 빠져나오기
+            if (targetIndex == 0)
+
+            {
+                Console.WriteLine("없는 번호입니다.");
+
+                return 0;
+            }
+
+            //해당 리스트 목록에 수정될 내용 작성
+
+            Console.Write("수정할 ID를 입력해 주세요 : ");
+
+            string IDString = Console.ReadLine();
+
+            Console.Write("수정할 이름을 입력해 주세요 : ");
+
+            string NameString = Console.ReadLine();
+
+            Console.Write("수정할 전화번호를 입력해 주세요 : ");
+
+            string HPString = Console.ReadLine();
+
+            //예외처리와 리스트 목록에 수정
+
+            Console.WriteLine();
+
+            if (IsNull(IDString, NameString, HPString))
+
+                Console.WriteLine("모든 항목은 필수 입력창입니다.");
+
+            else if (IsNull(IDString, NameString, HPString))
+
+            {
+
+                Console.WriteLine("데이터가 정상적으로 수정되었습니다.");
+
+                list[targetIndex - 1].ADDR_ID = int.Parse(IDString);
+
+                list[targetIndex - 1].Name = NameString;
+
+                list[targetIndex - 1].HP = HPString;
+
+            }
+            else
+
+                Console.WriteLine("잘못된 입력입니다.");
+
+            //메소드가 int값을 반환해야 하기때문에 넣은 return
+
+            return 0;
+        }
+        //메인
+        static void Main(string[] args)
+        {
+            List<Person> list = new List<Person>();
+            while (true)
+            {
+                Console.WriteLine("1. 데이터 삽입");
+
+                Console.WriteLine("2. 데이터 삭제");
+
+                Console.WriteLine("3. 데이터 조회");
+
+                Console.WriteLine("4. 데이터 수정");
+
+                Console.WriteLine();
+                Console.Write("메뉴 : ");
+                string selString = Console.ReadLine();
+                if (selString == "")
+                {
+                    Console.WriteLine("시스템을 종료합니다.");
+                    Environment.Exit(0);
+
+                }
+                int select = int.Parse(selString);
+                switch (select)
+                {
+                    case 1:
+                        Console.WriteLine();
+                        insertP(ref list);
+                        break;
+                    case 2:
+                        Console.WriteLine();
+                        DeleteP(ref list);
+                        break;
+                    case 3:
+                        Console.WriteLine();
+                        WriteList(list);
+                        break;
+                    case 4:
+                        Console.WriteLine();
+                        UpdateP(ref list);
+                        break;
+                    default:
+                        Console.WriteLine("시스템을 종료합니다.");
+                        Environment.Exit(0);
+                        break;
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
